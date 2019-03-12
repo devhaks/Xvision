@@ -4,3 +4,11 @@
 *.png
 *.txt
 .ipynb_checkpoints/
+.Python
+bin/
+include/
+lib/
+share/
+testing_labels_calc_nodule_only
+training_labels_calc_nodule_only
+DeepLearning/images*
