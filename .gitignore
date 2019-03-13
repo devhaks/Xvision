@@ -2,7 +2,6 @@
 *.tfmodel
 *.ckpt
 *.png
-*.txt
 .ipynb_checkpoints/
 .Python
 bin/
