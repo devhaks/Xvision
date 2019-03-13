@@ -38,39 +38,62 @@ $ sudo pip3 install virtualenv
 # 다운받은 프로젝트 디렉토리에 파이썬 로컬 실행 환경 셋팅하기
 $ virtualenv Xvision
 
-# 디렉토리 확인하기. bin, lib 디렉토리가 생성되면 정상!!
+# 디렉토리 확인하기. 운영체제에 따라 생성되는 파일들이 다르다고 한다.
 $ cd Xvision
 $ ls -al
 ```
-### 가상모드 실행하기
+### 가상모드 실행 방법
 
 ```bash
+
+# linux 인 경우, bin 디렉토리
 $ source ./bin/activate
 
-# 커맨드 앞부분이 변경되었으면 정상적으로 로컬 실행이 완료돰. 
+# window 인 경우, scripts 디렉토리
+$ call ./scripts/activate
+
+# 실행 결과가 커맨드 앞부분이 변경되었으면 정상적으로 로컬 실행이 완료돰. 
 (Xvision) ➜  Xvision $
 ```
 
-### 파이썬 웹 실행 툴인 주피터 설치하기
-[주피터 설치](https://jupyter.org/install) 를 통해 python 버전에 맞게 설치를 진행한다. 다운로드 받은 프로젝트에 설치를 해야한다.
+### 가상모드 종료 방법
 
-아래 명령을 실행하면 주피터 브라우저가 띄워지고 프로젝트 디렉토리 목록이 보일 것이다.
+`deactivate` 명령어로 가상 환경을 빠져 나올 수 있다.
+
+```bash
+(Xvision) ➜  Xvision $ deactivate
+
+# 커맨드 앞 부분이 다시 원래로 돌아온다.
+$
+```
+
+### 로컬 패키지 설치 하기
+
+`requirements.txt` 파일에 프로젝트를 실행하기 위한 의존성 패키지의 목록이 있다. 
+
+이 목록을 한번에 설치하기 위해 다음 명령어를 입력한다.
+
+```bash
+(Xvision) ➜  Xvision $ pip install -r requirements.txt
+```
+
+
+### 파이썬 웹 실행 툴인 주피터 실행하기
+
+아래 명령을 실행하면 주피터 브라우저가 띄워지고 프로젝트 파일 목록이 보일 것이다.
+
 ```bash
 (Xvision) ➜  Xvision $ jupyter notebook
 ```
 
-`scraper/process.ipynb` 파일로 이동하여 `projectRootPath` 이라고 표시된 부분을 프로젝트 경로로 대체하여 저장 한다.
+브라우저에서 `scraper/process.ipynb` 파일로 이동하여 `projectRootPath` 이라고 표시된 부분을 모두 프로젝트 경로로 대체하여 저장 한다.
 
 이제 실행해야할 차례인데, 실행전에 `DeepLearning/images` 디렉토리가 있어야 하고 training 이미지 파일이 있어야 한다. 다운로드 방법은 아래의 [Steps to follow](#steps-to-follow) 부분을 참고한다.
 
 images 디렉토리에 이미지를 준비해 놓고 주피터 화면으로 이동하여 `Run` 버튼을 눌러 한 단계씩 진행한다.
 
-만약, 실행준에 모듈을 찾을 수 없다는 에러가 출력된다면 간단히 설치를 해주면 된다.
-```bash
-(Xvision) ➜  Xvision $ pip install <패키지명>
-```
+마지막까지 정상 실행 된다면 `DeepLearning` 디렉토리에 아래와 같은 결과물이 생성된다.
 
-마지막까지 정상 실행 된다면 `DeepLearning` 디렉토리에 아래와 같은 결과물이 생성될 것이다. 
 1. final_test_images_calc_nodule_only 
 2. final_train_images_calc_nodule_only
 
